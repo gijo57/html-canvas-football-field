@@ -13,9 +13,9 @@ const corners = {
 // Make cool grass for field
 for (let i = 0; i < 14; i++) {
   if (i % 2 === 0) {
-    context.fillStyle = 'green';
+    context.fillStyle = '#00A500';
   } else {
-    context.fillStyle = 'darkgreen';
+    context.fillStyle = '#009900';
   }
   context.fillRect((i * width) / 14, 0, width / 14, height);
 }
