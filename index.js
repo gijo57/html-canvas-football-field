@@ -77,9 +77,42 @@ const drawGoal = (fieldHalf) => {
       goalWidth,
       goalHeight
     );
+    drawNet(
+      corners.topLeft.x - goalWidth,
+      corners.topLeft.x,
+      yCoordinate,
+      yCoordinate + goalHeight
+    );
   } else if (fieldHalf === 'right') {
     context.strokeRect(corners.topRight.x, yCoordinate, goalWidth, goalHeight);
+    drawNet(
+      corners.topRight.x,
+      corners.topRight.x + goalWidth,
+      yCoordinate,
+      yCoordinate + goalHeight
+    );
   }
+};
+
+const drawNet = (startX, endX, startY, endY) => {
+  let interval = 33;
+  context.lineWidth = 0.7;
+  for (let i = 0; i < 9; i++) {
+    context.beginPath();
+    context.moveTo(startX + (interval * i) / 10, startY);
+    context.lineTo(startX + (interval * i) / 10, endY);
+    context.stroke();
+    context.closePath();
+  }
+
+  for (let i = 0; i < 20; i++) {
+    context.beginPath();
+    context.moveTo(startX, startY + (interval * i) / 10);
+    context.lineTo(endX, startY + (interval * i) / 10);
+    context.stroke();
+    context.closePath();
+  }
+  context.lineWidth = 3;
 };
 
 //Field borders
