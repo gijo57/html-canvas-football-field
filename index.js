@@ -42,7 +42,6 @@ context.lineTo(width / 2, corners.bottomLeft.y);
 context.stroke();
 context.closePath();
 
-// Function for drawing all round shapes of the field
 const drawArc = (x, y, radius, start, end, type) => {
   context.beginPath();
   context.arc(x, y, radius, start, end);
@@ -53,7 +52,6 @@ const drawArc = (x, y, radius, start, end, type) => {
   }
 };
 
-//Function for drawing all box areas
 const drawArea = (boxWidth, boxHeight, fieldHalf) => {
   const yCoordinate = height / 2 - boxHeight / 2;
   if (fieldHalf === 'left') {
@@ -65,6 +63,22 @@ const drawArea = (boxWidth, boxHeight, fieldHalf) => {
       boxWidth,
       boxHeight
     );
+  }
+};
+
+const drawGoal = (fieldHalf) => {
+  const goalWidth = 25;
+  const goalHeight = 65;
+  const yCoordinate = height / 2 - goalHeight / 2;
+  if (fieldHalf === 'left') {
+    context.strokeRect(
+      corners.topLeft.x - goalWidth,
+      yCoordinate,
+      goalWidth,
+      goalHeight
+    );
+  } else if (fieldHalf === 'right') {
+    context.strokeRect(corners.topRight.x, yCoordinate, goalWidth, goalHeight);
   }
 };
 
@@ -133,3 +147,7 @@ drawArc(
   -0.73 * Math.PI,
   'no-fill'
 );
+
+//Goals
+drawGoal('left');
+drawGoal('right');
