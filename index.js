@@ -58,7 +58,15 @@ const drawArea = (boxWidth, boxHeight, fieldHalf) => {
   const yCoordinate = height / 2 - boxHeight / 2;
   if (fieldHalf === 'left') {
     context.strokeRect(corners.topLeft.x, yCoordinate, boxWidth, boxHeight);
-    drawArc((width / 14) * 2 + 10, height / 2, 5, 0, 2 * Math.PI, 'fill');
+    drawArc((width / 14) * 2 + 10, height / 2, 3, 0, 2 * Math.PI, 'fill');
+    drawArc(
+      (width / 14) * 2 + 10,
+      height / 2,
+      60,
+      -0.27 * Math.PI,
+      0.27 * Math.PI,
+      'no-fill'
+    );
   } else if (fieldHalf === 'right') {
     context.strokeRect(
       corners.topRight.x - boxWidth,
@@ -69,10 +77,18 @@ const drawArea = (boxWidth, boxHeight, fieldHalf) => {
     drawArc(
       width - (width / 14) * 2 - 10,
       height / 2,
-      5,
+      3,
       0,
       2 * Math.PI,
       'fill'
+    );
+    drawArc(
+      width - (width / 14) * 2 - 10,
+      height / 2,
+      60,
+      -1.27 * Math.PI,
+      -0.73 * Math.PI,
+      'no-fill'
     );
   }
 };
@@ -81,7 +97,7 @@ const drawArea = (boxWidth, boxHeight, fieldHalf) => {
 drawArea(width - 2 * (width / 14), height - 2 * 30);
 
 //Center spot
-drawArc(width / 2, height / 2, 5, 0, 2 * Math.PI, 'fill');
+drawArc(width / 2, height / 2, 3, 0, 2 * Math.PI, 'fill');
 
 //Center circle
 drawArc(width / 2, height / 2, 60, 0, 2 * Math.PI, 'no-fill');
