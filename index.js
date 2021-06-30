@@ -123,7 +123,7 @@ drawArc(
   'no-fill'
 );
 
-//Light penalty spot and penalty area arc
+//Right penalty spot and penalty area arc
 drawArc(width - (width / 14) * 2 - 10, height / 2, 3, 0, 2 * Math.PI, 'fill');
 drawArc(
   width - (width / 14) * 2 - 10,
